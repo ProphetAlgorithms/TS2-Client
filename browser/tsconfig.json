@@ -1,9 +1,14 @@
 {
     "compilerOptions": {
+        "strict": true,
+        "forceConsistentCasingInFileNames": true,
+        "strictPropertyInitialization": false,
+        "strictNullChecks": false,
+        "strictBindCallApply": false,
+        "strictFunctionTypes": false,
         "sourceMap": true,
         "outDir": "./build",
         "moduleResolution":"node",
-        "noImplicitAny": true,
         "esModuleInterop": true,
         "noImplicitReturns": true,
         "target": "es2021",

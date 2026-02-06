@@ -6,7 +6,8 @@ const minify = require('@node-minify/core');
 const noCompress = require('@node-minify/no-compress');
 const cleanCSS = require('@node-minify/clean-css');
 const terser = require('@node-minify/terser');
-const htmlMinifier = require('@node-minify/html-minifier');
+let htmlMinifier = null;
+
 
 function minifyHtml(next) {
     console.log("Minifying HTML")
@@ -327,30 +328,34 @@ function copyToPublic() {
     });
 }
 
-fsx.copy('./src/ecmascript.json', './static/public/modules/ecmascript.json');
-fsx.copy('./src/browser.json', './static/public/modules/browser.json');
-fsx.copy('./src/jquery.json', './static/public/modules/jquery.json');
+(async () => {  
+    htmlMinifier = await import('@node-minify/html-minifier');
+    fsx.copy('./src/ecmascript.json', './static/public/modules/ecmascript.json');
+    fsx.copy('./src/browser.json', './static/public/modules/browser.json');
+    fsx.copy('./src/jquery.json', './static/public/modules/jquery.json');
 
-if (!fs.existsSync("./dist")) {
-    fs.mkdirSync("dist")
-}
-
-buildAndMinify(
-(async () => {
-    console.log(`Merge and Minify completed`);
-    try {
-        fsx.copy('./dist/tern_module.min.js', './static/public/modules/tern_module.min.js');
-        fsx.copy('./dist/jqwidgets_module.min.js', './static/public/modules/jqwidgets_module.min.js');
-        fsx.copy('./dist/codemirror_module.min.js', './static/public/modules/codemirror_module.min.js');
-        fsx.copy('./dist/corejs.min.js', './static/public/modules/corejs.min.js');
-        fsx.copy('./dist/jquery.min.js', './static/public/modules/jquery.min.js');
-
-        await del("dist/public");
-        
-        console.log(`dist/public is deleted!`);
-        copyToPublic();
-        console.log(`Build done in: dist/public!`);
-    } catch (err) {
-        console.error(`Error during build: ` + err);
+    if (!fs.existsSync("./dist")) {
+        fs.mkdirSync("dist")
     }
-}));
+
+    buildAndMinify(
+    (async () => {
+        console.log(`Merge and Minify completed`);
+        try {
+            fsx.copy('./dist/tern_module.min.js', './static/public/modules/tern_module.min.js');
+            fsx.copy('./dist/jqwidgets_module.min.js', './static/public/modules/jqwidgets_module.min.js');
+            fsx.copy('./dist/codemirror_module.min.js', './static/public/modules/codemirror_module.min.js');
+            fsx.copy('./dist/corejs.min.js', './static/public/modules/corejs.min.js');
+            fsx.copy('./dist/jquery.min.js', './static/public/modules/jquery.min.js');
+
+            await del("dist/public");
+            
+            console.log(`dist/public is deleted!`);
+            copyToPublic();
+            console.log(`Build done in: dist/public!`);
+        } catch (err) {
+            console.error(`Error during build: ` + err);
+        }
+    }));
+
+})();
