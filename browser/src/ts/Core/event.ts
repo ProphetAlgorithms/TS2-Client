@@ -22,7 +22,7 @@ export class EventHook<TData> {
 
         let ret = false
         for (let [cb, context] of this.handlers) {
-            ret = cb.call(context, data) || ret;
+            ret = (!!cb.call(context, data)) || ret;
         }
 
         return ret;

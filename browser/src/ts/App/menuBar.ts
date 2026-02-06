@@ -6,7 +6,7 @@ import { AliasEditor } from "../Scripting/windows/aliasEditor";
 import { TriggerEditor } from "../Scripting/windows/triggerEditor";
 import { JsScriptWin } from "../Scripting/windows/jsScriptWin";
 import { AboutWin } from "./windows/aboutWin";
-import { TsClient, setupWorkers } from "./client";
+import { Client, TsClient, setupWorkers } from "./client";
 import { ProfilesWindow } from "./windows/profilesWindow";
 import { WindowManager } from "./windowManager";
 import { VariablesEditor } from "../Scripting/windows/variablesEditor";
@@ -228,7 +228,8 @@ export class MenuBar {
         private layoutWindowr: LayoutWindow,
         private changelog: VersionsWin,
         private voiceWin:VoiceWin,
-        private clientConfig:clientConfig
+        private clientConfig:clientConfig,
+        private client: Client
         ) 
     {
         this.notify = debounce(this.notify, 250)
@@ -418,6 +419,7 @@ export class MenuBar {
         }
         
         this.clickFuncs["theme-default"] = (val) => {
+            this.client.detachUnloadListener();
             TsClient.setTheme("metro", "light", "neat")
         }
 
@@ -430,10 +432,12 @@ export class MenuBar {
         }
 
         this.clickFuncs["theme-light"] = (val) => {
+            this.client.detachUnloadListener();
             TsClient.setTheme("metro", "light", "neat")
         }
 
         this.clickFuncs["theme-dark"] = (val) => {
+            this.client.detachUnloadListener();
             TsClient.setTheme("metrodark", "dark", "material")
         }
 

@@ -185,7 +185,7 @@ export function throttle(fn:Function, threshhold:number, scope?:any):Function {
     var deferTimer:number;
 
 
-    return function () {
+    return function (this:any) {
 
         var context = scope || this;
       var now = +new Date,

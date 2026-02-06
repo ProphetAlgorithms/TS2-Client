@@ -1,6 +1,5 @@
 import { Console } from "console";
 import { EventHook } from "../Core/event";
-import { to_screen_coordinate } from "../Core/isometric";
 import { ExitDir, ExitType, Mapper, Room, RoomExit, LabelPos, RoomType, ExitDir2LabelPos, ReverseExitDir, MapperOptions } from "./mapper";
 import { Button, Messagebox, Notification } from "../App/messagebox";
 import { Color, colorCssToRGB } from "../Core/util";
@@ -1013,7 +1012,7 @@ export class MapperDrawing {
                 //this.setSize();
                 this.draw(this.canvas, ctx, false, null)
             }
-        } catch (ex) {
+        } catch (ex:any) {
             //console.log(ex)
             ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
             ctx.fillStyle = "rgb(200,0,0)"

@@ -542,7 +542,7 @@ Se ora rispondi No dovrai aggiornare manualmente dalla finestra Disposizione sch
 
     async updateLayout(prof: Profile, newLayout: LayoutDefinition) {
         if ((denyClientVersion(newLayout))) {
-            Messagebox.Show("Errore", `E' impossibile caricare questa versione.\nE' richiesta una versione piu' alta del client.\n\nAggiorna il client che usi per poter usare questa configurazione.\n\n<a href="https://github.com/temporasanguinis/TS2-Client/releases" target="_blank">Scarica l'ultima versione da qui</a>`)
+            Messagebox.Show("Errore", `E' impossibile caricare questa versione.\nE' richiesta una versione piu' alta del client.\n\nAggiorna il client che usi per poter usare questa configurazione.\n\n<a href="https://temporasanguinis.github.io/TS2-Client/" target="_blank">Scarica l'ultima versione da qui</a>`)
             return;
         }
         prof.layout = newLayout;
@@ -1768,7 +1768,7 @@ Se ora rispondi No dovrai aggiornare manualmente dalla finestra Disposizione sch
     public async loadBaseLayout(prof:Profile) {
         var ly = await $.ajax("./baseLayout.json?rnd="+Math.random());
         if ((denyClientVersion(ly))) {
-            Messagebox.Show("Errore", `E' impossibile caricare questa versione.\nE' richiesta una versione piu' alta del client.\n\nAggiorna il client che usi per poter usare questa configurazione.\n\n<a href="https://github.com/temporasanguinis/TS2-Client/releases" target="_blank">Scarica l'ultima versione da qui</a>`)
+            Messagebox.Show("Errore", `E' impossibile caricare questa versione.\nE' richiesta una versione piu' alta del client.\n\nAggiorna il client che usi per poter usare questa configurazione.\n\n<a href="https://temporasanguinis.github.io/TS2-Client/" target="_blank">Scarica l'ultima versione da qui</a>`)
             return;
         }
         if (ly) {

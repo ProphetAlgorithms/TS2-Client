@@ -646,8 +646,8 @@ export class EditRoomWin {
                 this.setValue<typeof this.room>("type", this.$roomType.val() ? parseInt(this.$roomType.val()) : null);
             }
             return true
-        } catch (er) {
-            Messagebox.Show("Errore nei valori", er)
+        } catch (er:any) {
+            Messagebox.Show("Errore nei valori", (er.message || er).toString())
             return false
         }
     }

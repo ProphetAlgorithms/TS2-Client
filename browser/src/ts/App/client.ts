@@ -126,6 +126,10 @@ export class Client {
         }
     }
 
+    public detachUnloadListener() {
+        window.removeEventListener("beforeunload", this.preventNavigate);
+    }
+    
     public connect(ct?:ConnectionTarget) {
         this.commandInput.SplitScroll(false)
         if (ct) {
@@ -281,7 +285,7 @@ export class Client {
         
         this.SetupRTC();   
 
-        this.menuBar = new MenuBar(this.aliasEditor, this.triggerEditor, this.baseTriggerEditor, this.baseAliasEditor, this.jsScriptWin, this.aboutWin, this.profilesWin, this.profileManager.activeConfig, this.variableEditor, this.classEditor, this.eventsEditor, this.baseEventsEditor, this.numpadWin, this.jsScript, this.outputWin, this.baseConfig, this.helpWin, this.mapper, this.layoutWindow, this.changelog, this.voiceWin, this.config);
+        this.menuBar = new MenuBar(this.aliasEditor, this.triggerEditor, this.baseTriggerEditor, this.baseAliasEditor, this.jsScriptWin, this.aboutWin, this.profilesWin, this.profileManager.activeConfig, this.variableEditor, this.classEditor, this.eventsEditor, this.baseEventsEditor, this.numpadWin, this.jsScript, this.outputWin, this.baseConfig, this.helpWin, this.mapper, this.layoutWindow, this.changelog, this.voiceWin, this.config, this);
         this.menuBar.setWIndowManager(this.windowManager);
         this.profileWin.setWindowManager(this.windowManager);
 
@@ -870,7 +874,6 @@ export namespace TsClient {
         $.jqx.theme = theme_name;
 
         if (theme) {
-            window.removeEventListener("beforeunload", this.preventNavigate);
             window.location.reload();
         }
     }

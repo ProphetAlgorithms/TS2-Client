@@ -17,13 +17,16 @@ export class AboutWin {
         <div>INFORMAZIONI CLIENT E VERSIONE</div>
         <!--content-->
         <div style="text-align:center;">
-            <h1>${title}</h1>
+            <h1><a href="https://temporasanguinis.github.io/TS2-Client/" target="_blank">${title}</a></h1>
+            <a href="https://temporasanguinis.github.io/TS2-Client/" target="_blank">Sito Web, downloads, e donazioni</a>
+            <br>
+            <br>
             Versione: ${AppInfo.Version}
             <br>
             Build: ${AppInfo.Build}
             <br>
             <br>
-            Sito: <a href="${AppInfo.RepoUrl}" target="_blank">${AppInfo.RepoUrl}</a>
+            Github repo: <a href="${AppInfo.RepoUrl}" target="_blank">${AppInfo.RepoUrl}</a>
             <br>
             Bug report: <a href="${AppInfo.BugsUrl}" target="_blank">${AppInfo.BugsUrl}</a>
             <br>
@@ -31,7 +34,6 @@ export class AboutWin {
             Autore: ${htmlEscape(AppInfo.Author)}
             <br>
             Contributori: ${htmlEscape(AppInfo.Contributors.join(", "))}<br><br>
-            <a href="https://github.com/temporasanguinis/TS2-Client/releases" target="_blank">Scarica l'ultima versione da qui</a>
         </div>
         `;
 

@@ -204,7 +204,7 @@ export class JsScript {
         }
     
     }
-    startWatch = function (scr:JsScript) {
+    startWatch = function (this:any, scr:JsScript) {
 
         if (!this.watchTask) {
             this._oldValues = {};
@@ -343,7 +343,7 @@ export class JsScript {
             try {
                 throw new Error('');
             }
-            catch (error) {
+            catch (error:any) {
                 stack = error.stack || '';
             }
         } else {
@@ -380,7 +380,7 @@ export class JsScript {
         const self = this
         
         function wrapFunction(fn:Function, fn2:Function) {
-            return function(...args:any) {
+            return function(this:any, ...args:any) {
                 fn2.call(this,...args)
                 const result = fn(...args); 
                 return result; 
@@ -394,7 +394,7 @@ export class JsScript {
                     c[key] = element
                 } else {
                     const oldF:Function = element
-                    c[key] = wrapFunction(oldF, function(...args:any) {
+                    c[key] = wrapFunction(oldF, function(this:any, ...args:any) {
                         const dbg = self.config.getDef("debugScripts", false)
                         if (dbg) {
                             let getKey = () => key.toUpperCase() + "(" + this.owner + ")"
@@ -791,7 +791,7 @@ export const API: { [key: string]: any} = {
     private: {}
 }
 
-function makeScript(owner:string, userScript: string, argSignature: string,
+function makeScript(this:ScriptThis, owner:string, userScript: string, argSignature: string,
     classManager: ClassManager,
     aliasManager: AliasManager,
     triggerManager: TriggerManager,
@@ -885,7 +885,7 @@ function makeScript(owner:string, userScript: string, argSignature: string,
                       fore, back, bold, underline, blink));
     };
 
-    const delay = function(id: string, time:number, func:Function) {
+    const delay = function(this:any, id: string, time:number, func:Function) {
         if (!window.timeouts) {
             window.timeouts = {};
         }
@@ -904,7 +904,7 @@ function makeScript(owner:string, userScript: string, argSignature: string,
             }, time);
         }   
     };
-    const repeat = function(id: string, time:number, func:Function) {
+    const repeat = function(this:any,id: string, time:number, func:Function) {
         if (!window.repeats) {
             window.repeats = {};
         }

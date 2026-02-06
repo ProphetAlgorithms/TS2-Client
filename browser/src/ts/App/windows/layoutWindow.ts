@@ -310,7 +310,7 @@ Vuoi salvare prima di uscire?`, "Si", "No").then(mr => {
         Util.importFromFile(d => {
             let l = JSON.parse(d)
             if ((Util.denyClientVersion(l))) {
-                Messagebox.Show("Errore", `E' impossibile caricare questa versione.\nE' richiesta una versione piu' alta del client.\n\nAggiorna il client che usi per poter usare questa configurazione.\n\n<a href="https://github.com/temporasanguinis/TS2-Client/releases" target="_blank">Scarica l'ultima versione da qui</a>`)
+                Messagebox.Show("Errore", `E' impossibile caricare questa versione.\nE' richiesta una versione piu' alta del client.\n\nAggiorna il client che usi per poter usare questa configurazione.\n\n<a href="https://temporasanguinis.github.io/TS2-Client/" target="_blank">Scarica l'ultima versione da qui</a>`)
                 return;
             }
             this.layout = l

@@ -395,7 +395,7 @@ export class OutputManager {
             this.partialUtf8 = result.partial;
             rx += result.result;
         } else {
-            rx += String.fromCharCode.apply(String, new Uint8Array(data));
+            rx += String.fromCharCode.apply(String, new Uint8Array(data) as unknown as number[]);
         }
 
         let output = "";
