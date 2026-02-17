@@ -24,6 +24,6 @@ export class IoEvent {
 
     public clReqTelnetOpen = new IoEventHook<[string, number]>(this.ioOobj, "clReqTelnetOpen");
     public clReqTelnetClose = new IoEventHook<void>(this.ioOobj, "clReqTelnetClose");
-    public clReqTelnetWrite = new IoEventHook<ArrayBuffer>(this.ioOobj, "clReqTelnetWrite");
-    public clReqSetVars = new IoEventHook<ArrayBuffer>(this.ioOobj, "clReqSetVars");
+    public clReqTelnetWrite = new IoEventHook<ArrayBufferLike>(this.ioOobj, "clReqTelnetWrite");
+    public clReqSetVars = new IoEventHook<ArrayBufferLike>(this.ioOobj, "clReqSetVars");
 }
