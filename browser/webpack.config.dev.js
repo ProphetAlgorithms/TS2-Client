@@ -1,7 +1,6 @@
 var path = require('path');
 var fs = require('fs');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const CopyPlugin = require("copy-webpack-plugin");
 
 module.exports = {
@@ -12,13 +11,11 @@ module.exports = {
     // Bundle absolute resource paths in the source-map,
     // so VSCode can match the source file.
     devtoolModuleFilenameTemplate: '[absolute-resource-path]',
+    clean: {
+      keep: /^jquery.*|.*(?!\.hot-update\.json|\.js)(?<!\.hot-update\.json|\.js)$/,
+    },
   },
   plugins: [
-    new CleanWebpackPlugin({
-      /*dry: true,*/
-      verbose: true,
-      cleanOnceBeforeBuildPatterns: ['*.hot-update.json', '*.js', '!jquery*'],
-    }),
     new CopyPlugin({
       patterns: [
         {
