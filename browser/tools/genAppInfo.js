@@ -20,7 +20,7 @@ exec(build, (error, stdout, stderr) => {
     let token = process.env.CONNECTION_TOKEN
     if (!token) {
         try {
-            token = fs.readFileSync("token", {encoding: "utf8"})
+            token = fs.readFileSync("token", {encoding: "utf8"}).replace(/[\r\n]+/gm, "")
         } catch {
             console.error("Se non usi l'environment variable CONNECTION_TOKEN, devi avere un file chiamato token nella cartella con il contenuto del CONNECTION_TOKEN per poter conetterti al proxy.")
             exit(10)
