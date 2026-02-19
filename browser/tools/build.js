@@ -1,4 +1,4 @@
-const del = require('del');
+const { deleteAsync } = require('del');
 const fs = require('fs');
 const fsx = require('fs-extra');
 const path = require('path');
@@ -348,7 +348,7 @@ function copyToPublic() {
             fsx.copy('./dist/corejs.min.js', './static/public/modules/corejs.min.js');
             fsx.copy('./dist/jquery.min.js', './static/public/modules/jquery.min.js');
 
-            await del("dist/public");
+            await deleteAsync("dist/public");
             
             console.log(`dist/public is deleted!`);
             copyToPublic();
