@@ -1,24 +1,21 @@
 var path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const CopyPlugin = require("copy-webpack-plugin");
 const TerserPlugin = require("terser-webpack-plugin");
 module.exports = {
   entry: './build/browser/src/ts/App/client.js',
   output: {
     path: path.resolve(__dirname, "static/public"),
-    filename: 'mudslinger-[contenthash].js'
+    filename: 'mudslinger-[contenthash].js',
+    clean: {
+      keep: /^jquery.*|.*(?!\.hot-update\.json|\.js)(?<!\.hot-update\.json|\.js)$/,
+    },
   },
   performance: {
     maxEntrypointSize: 1024000,
     maxAssetSize: 1024000
   },
   plugins: [
-    new CleanWebpackPlugin({
-      /*dry: true,*/
-      verbose: true,
-      cleanOnceBeforeBuildPatterns: ['*.hot-update.json', '*.js', '!jquery*'],
-    }),
     new 
     CopyPlugin({
       patterns: [
