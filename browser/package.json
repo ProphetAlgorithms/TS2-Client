@@ -88,7 +88,7 @@
     "@types/resize-observer-browser": "^0.1.11",
     "codemirror": "^5.65.20",
     "copy-webpack-plugin": "^13.0.1",
-    "electron": "^40.4.1",
+    "electron": "^40.6.1",
     "electron-builder": "^26.8.1",
     "fs-extra": "^11.3.2",
     "html-webpack-plugin": "^5.6.6",
