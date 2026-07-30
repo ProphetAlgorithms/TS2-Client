@@ -1,7 +1,7 @@
-import * as Util from "../../Core/util";
+import * as Util from "../../Core/util.js";
 import { JsScript, Variable } from "../jsScript";
-import { Messagebox, messagebox } from "../../App/messagebox";
-import { isTrue } from "../../Core/util";
+import { Messagebox, messagebox } from "../../App/messagebox.js";
+import { isTrue } from "../../Core/util.js";
 import { isNumeric } from "jquery";
 import { ProfileManager } from "../../App/profileManager";
 declare let CodeMirror: any;
