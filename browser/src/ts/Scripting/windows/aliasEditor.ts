@@ -1,6 +1,6 @@
 import { AliasManager } from "../aliasManager";
-import { EventHook } from "../../Core/event";
-import { copyData, TrigAlEditBase, TrigAlItem } from "./trigAlEditBase";
+import { EventHook } from "../../Core/event.js";
+import { copyData, TrigAlEditBase, TrigAlItem } from "./trigAlEditBase.js";
 import { ProfileManager } from "../../App/profileManager";
 import { JsScript } from "../jsScript";
 import { ClassManager } from "../classManager";
