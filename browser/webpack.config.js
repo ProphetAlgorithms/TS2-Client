@@ -1,8 +1,9 @@
-var path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const CopyPlugin = require("copy-webpack-plugin");
-const TerserPlugin = require("terser-webpack-plugin");
-module.exports = {
+import path from 'path';
+import HtmlWebpackPlugin from 'html-webpack-plugin';
+import CopyPlugin from "copy-webpack-plugin";
+import TerserPlugin from "terser-webpack-plugin";
+const __dirname = import.meta.dirname;
+export default {
   entry: './build/browser/src/ts/App/client.js',
   output: {
     path: path.resolve(__dirname, "static/public"),
