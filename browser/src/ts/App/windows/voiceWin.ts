@@ -1,11 +1,11 @@
 import { debounce } from "lodash";
 import { AppInfo } from "../../appInfo";
-import { htmlEscape, throttle } from "../../Core/util";
+import { htmlEscape, throttle } from "../../Core/util.js";
 import { WebRTC, ChannelData } from "../../Core/webRTC";
-import { EvtScriptEmitPrint } from "../../Scripting/jsScript";
+import { EvtScriptEmitPrint } from "../../Scripting/jsScript.js";
 import { CommandInput } from "../commandInput";
 import { IBaseWindow } from "../windowManager";
-import { Messagebox, Notification } from '../../App/messagebox';
+import { Messagebox, Notification } from '../../App/messagebox.js';
 
 export class VoiceWin implements IBaseWindow {
     private $win: JQuery;
@@ -661,4 +661,3 @@ export class VoiceWin implements IBaseWindow {
         (<any>this.$win).jqxWindow("bringToFront");
     }
 }
-
