@@ -1,21 +1,22 @@
 import { ExitDir, Favorite, MapDatabase, Mapper, MapperOptions, MapVersion, Room, RoomExit, Zone } from "../mapper";
-import { Messagebox, MessageboxResult, messagebox, Button, Notification } from "../../App/messagebox";
+import { Messagebox, MessageboxResult, messagebox, Button, Notification } from "../../App/messagebox.js";
 import { isNumeric } from "jquery";
 import { IBaseWindow, WindowManager } from "../../App/windowManager";
-import { EvtScriptEmitCmd, EvtScriptEmitPrint, EvtScriptEvent, ScripEventTypes } from "../../Scripting/jsScript";
-import { EditMode, MapperDrawing } from "../mapperDrawing";
+import { EvtScriptEmitCmd, EvtScriptEmitPrint, EvtScriptEvent, ScripEventTypes } from "../../Scripting/jsScript.js";
+import { EditMode, MapperDrawing } from "../mapperDrawing.js";
 import { ResizeSensor } from 'css-element-queries'
-import { downloadJsonToFile, importFromFile, padStart } from '../../Core/util'
-import { NewLineKind } from "typescript";
-import { EditRoomWin } from './editRoomWin'
-import { MapperOptionsWin } from './mapperOptionsWin'
+import { downloadJsonToFile, importFromFile, padStart } from '../../Core/util.js'
+//import { NewLineKind } from "typescript";
+import * as NewLineKind from "typescript";
+import { EditRoomWin } from './editRoomWin.js'
+import { MapperOptionsWin } from './mapperOptionsWin.js'
 import { off } from "process";
 import { Point } from "../mapperDrawing"
-import { MapperMoveToZoneWin } from "./mapperMoveToZoneWin"
-import { EditZoneWin } from "./editZoneWin"
-import { MoveRoomsWin } from "./moveRoomsWin"
+import { MapperMoveToZoneWin } from "./mapperMoveToZoneWin.js"
+import { EditZoneWin } from "./editZoneWin.js"
+import { MoveRoomsWin } from "./moveRoomsWin.js"
 import { PropertyChanged } from "../../Scripting/jsScript"
-import { AudioFader } from "../../App/audioFader";
+import { AudioFader } from "../../App/audioFader.js";
 
 export enum UpdateType { none = 0, draw = 1 }
 export function createZoneLabel(useLabels: boolean, useId: boolean, item: Zone) {
@@ -1810,4 +1811,3 @@ function sameRooms(rooms: Room[], rooms1: Room[]) {
     }
     return true
 }
-
