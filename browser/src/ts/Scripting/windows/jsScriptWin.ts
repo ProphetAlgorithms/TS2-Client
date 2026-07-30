@@ -1,6 +1,6 @@
 import { TsClient } from "../../App/client";
 import {JsScript} from "../jsScript";
-import { CreateCodeMirror, parseScriptVariableAndParameters, refreshVariablesInTern } from "../../Core/util";
+import { CreateCodeMirror, parseScriptVariableAndParameters, refreshVariablesInTern } from "../../Core/util.js";
 
 declare let CodeMirror: any;
 
@@ -77,4 +77,3 @@ export class JsScriptWin {
     }
     
 }
-
