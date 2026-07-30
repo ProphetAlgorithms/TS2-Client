@@ -1,11 +1,11 @@
-import * as Util from "../../Core/util";
-import { JsScript, ScriptEvent, ScripEventTypes, ScriptEventsIta } from "../jsScript";
-import { Button, Messagebox } from "../../App/messagebox";
-import { CreateCodeMirror, circleNavigate } from "../../Core/util";
+import * as Util from "../../Core/util.js";
+import { JsScript, ScriptEvent, ScripEventTypes, ScriptEventsIta } from "../jsScript.js";
+import { Button, Messagebox } from "../../App/messagebox.js";
+import { CreateCodeMirror, circleNavigate } from "../../Core/util.js";
 import { TsClient } from "../../App/client";
 import { ProfileManager } from "../../App/profileManager";
 import { TrigAlItem } from "./trigAlEditBase";
-import { optionMappingToStorage } from "../../App/menuBar";
+import { optionMappingToStorage } from "../../App/menuBar.js";
 declare let CodeMirror: any;
 
 
@@ -642,4 +642,3 @@ export class EventsEditor {
         this.updateListBox();
     }
 }
-
