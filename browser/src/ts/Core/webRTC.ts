@@ -1,5 +1,5 @@
-import { AppInfo } from '../appInfo';
-import { EventHook } from '../Core/event';
+import { AppInfo } from '../appInfo.js';
+import { EventHook } from '../Core/event.js';
 import * as ioc from "socket.io-client";
 
 let ICE_SERVERS = [
