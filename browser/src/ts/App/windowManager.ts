@@ -1,12 +1,12 @@
-import { CustomWin } from "./windows/customWindow";
-import { EventHook } from "../Core/event";
-import { Control, ControlType, LayoutManager } from "./layoutManager";
+import { CustomWin } from "./windows/customWindow.js";
+import { EventHook } from "../Core/event.js";
+import { Control, ControlType, LayoutManager } from "./layoutManager.js";
 import { Mapper } from "../Mapper/mapper";
-import { MapperWindow } from "../Mapper/windows/mapperWindow";
-import { Button, Messagebox, messagebox } from "./messagebox";
+import { MapperWindow } from "../Mapper/windows/mapperWindow.js";
+import { Button, Messagebox, messagebox } from "./messagebox.js";
 import { Profile, ProfileManager } from "./profileManager";
-import { throttle, waitForVariableValue } from "../Core/util";
-import { VoiceWin } from "./windows/voiceWin";
+import { throttle, waitForVariableValue } from "../Core/util.js";
+import { VoiceWin } from "./windows/voiceWin.js";
 import { WebRTC } from "../Core/webRTC";
 import { CommandInput } from "./commandInput";
 
