@@ -1,4 +1,4 @@
-import { EventHook } from "./event";
+import { EventHook } from "./event.js";
 
 export interface NegotiationData {
     cmd: number;
