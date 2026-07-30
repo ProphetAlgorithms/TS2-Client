@@ -1,6 +1,6 @@
 import { cloneDeep } from "lodash";
 import {ExitDir, Room, RoomExit, Zone} from "../mapper"
-import { circleNavigate, colorCssToRGB, colorToHex } from "../../Core/util";
+import { circleNavigate, colorCssToRGB, colorToHex } from "../../Core/util.js";
 import { MapperDrawing } from "../mapperDrawing";
 import { Messagebox } from "../../App/messagebox";
 import { MapperWindow } from "./mapperWindow";
