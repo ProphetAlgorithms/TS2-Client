@@ -1,5 +1,5 @@
-const { exit } = require("process");
-const fs = require("fs");
+import { exit } from "process";
+import fs from "fs";
 
 let token = process.env.CONNECTION_TOKEN
 if (!token) try {
