@@ -1,9 +1,9 @@
 /// <reference path="../../../../node_modules/jqwidgets-framework/jqwidgets-ts/jqwidgets.d.ts"/>
 
 import hotkeys from "hotkeys-js";
-import { Button, messagebox, Messagebox, Notification } from "../../App/messagebox";
-import * as Util from "../../Core/util";
-import { circleNavigate, formatShortcutString } from "../../Core/util";
+import { Button, messagebox, Messagebox, Notification } from "../../App/messagebox.js";
+import * as Util from "../../Core/util.js";
+import { circleNavigate, formatShortcutString } from "../../Core/util.js";
 import { TsClient } from "../../App/client";
 import { debounce } from "lodash";
 import { ProfileManager } from "../../App/profileManager";
@@ -818,4 +818,3 @@ function oneClass(lst: TrigAlItem[]):boolean {
     lst.map(l => r[l.class]!=undefined ? r[l.class]++ : r[l.class]=0 )
     return (Object.keys(r).length <= 1)
 }
-
