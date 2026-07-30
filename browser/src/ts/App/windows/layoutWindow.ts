@@ -1,12 +1,12 @@
-import { Control, LayoutDefinition, LayoutManager, PanelPosition } from "../layoutManager";
-import { Button, Messagebox, Notification } from "../messagebox";
+import { Control, LayoutDefinition, LayoutManager, PanelPosition } from "../layoutManager.js";
+import { Button, Messagebox, Notification } from "../messagebox.js";
 import { ProfileManager } from "../profileManager";
-import * as Util from "../../Core/util";
+import * as Util from "../../Core/util.js";
 import { WindowDefinition, WindowManager } from "../windowManager";
-import { EditPanelWindow } from "./editPanelWindow";
+import { EditPanelWindow } from "./editPanelWindow.js";
 import { JsScript } from "../../Scripting/jsScript";
-import { getVersionNumbers } from "../../Core/util";
-import { AppInfo } from "../../appInfo";
+import { getVersionNumbers } from "../../Core/util.js";
+import { AppInfo } from "../../appInfo.js";
 
 export class LayoutWindow {
     protected $win: JQuery;
