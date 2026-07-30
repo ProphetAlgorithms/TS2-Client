@@ -1,6 +1,6 @@
-import { EventHook } from "../Core/event";
+import { EventHook } from "../Core/event.js";
 import { TrigAlItem } from "./windows/trigAlEditBase";
-import { EvtScriptEmitPrint, EvtScriptEmitToggleClass, EvtScriptEvent, ScripEventTypes } from "./jsScript";
+import { EvtScriptEmitPrint, EvtScriptEmitToggleClass, EvtScriptEvent, ScripEventTypes } from "./jsScript.js";
 import { ConfigIf } from "../Core/util";
 import { ProfileManager } from "../App/profileManager";
 import { UserConfig } from "../App/userConfig";
@@ -95,4 +95,3 @@ export class ClassManager {
         this.classes = this.config.get("classes") ? new Map<string, Class>(cls) : new Map<string, Class>();
     }
 }
-
