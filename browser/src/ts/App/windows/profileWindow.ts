@@ -1,8 +1,8 @@
 import { Profile, ProfileManager } from "../profileManager";
-import { Messagebox, messagebox } from "../messagebox";
+import { Messagebox, messagebox } from "../messagebox.js";
 import { isNumeric } from "jquery";
 import { WindowManager } from "../windowManager";
-import { circleNavigate } from "../../Core/util";
+import { circleNavigate } from "../../Core/util.js";
 
 export class ProfileWindow {
     public defaultServer = "mud.temporasanguinis.it";
