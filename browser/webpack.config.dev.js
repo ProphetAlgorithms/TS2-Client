@@ -1,9 +1,10 @@
-var path = require('path');
-var fs = require('fs');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const CopyPlugin = require("copy-webpack-plugin");
+import path from 'path';
+import fs from 'fs';
+import HtmlWebpackPlugin from 'html-webpack-plugin';
+import CopyPlugin from "copy-webpack-plugin";
+const __dirname = import.meta.dirname;
 
-module.exports = {
+export default {
   entry: './src/ts/App/client',
   output: {
     path: path.resolve(__dirname, "static/public"),
