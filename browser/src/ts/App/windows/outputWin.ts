@@ -1,8 +1,8 @@
 import { EventHook } from "../../Core/event";
-import { OutWinBase } from "./outWinBase";
+import { OutWinBase } from "./outWinBase.js";
 import { TriggerManager } from "../../Scripting/triggerManager";
-import * as Util from "../../Core/util";
-import { ConfigIf } from "../../Core/util";
+import * as Util from "../../Core/util.js";
+import { ConfigIf } from "../../Core/util.js";
 
 export class OutputWin extends OutWinBase {
     private outer:JQuery;
