@@ -1,8 +1,8 @@
 import { Console } from "console";
-import { EventHook } from "../Core/event";
-import { ExitDir, ExitType, Mapper, Room, RoomExit, LabelPos, RoomType, ExitDir2LabelPos, ReverseExitDir, MapperOptions } from "./mapper";
-import { Button, Messagebox, Notification } from "../App/messagebox";
-import { Color, colorCssToRGB } from "../Core/util";
+import { EventHook } from "../Core/event.js";
+import { ExitDir, ExitType, Mapper, Room, RoomExit, LabelPos, RoomType, ExitDir2LabelPos, ReverseExitDir, MapperOptions } from "./mapper.js";
+import { Button, Messagebox, Notification } from "../App/messagebox.js";
+import { Color, colorCssToRGB } from "../Core/util.js";
 interface MouseData {
     x: number;
     y: number;
