@@ -1,11 +1,11 @@
-import { EventHook } from "./event";
+import { EventHook } from "./event.js";
 import stripAnsi from 'strip-ansi';
 import { OutputManager } from "../App/outputManager";
 import { OutWinBase } from "../App/windows/outWinBase";
 import { CommandInput } from "../App/commandInput";
-import { EvtScriptEvent, JsScript, ScripEventTypes } from "../Scripting/jsScript";
+import { EvtScriptEvent, JsScript, ScripEventTypes } from "../Scripting/jsScript.js";
 import { UserConfig } from "../App/userConfig";
-import { htmlEscape } from "./util";
+import { htmlEscape } from "./util.js";
 
 
 // class DestWin extends OutWinBase {
