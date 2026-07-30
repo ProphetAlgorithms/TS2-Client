@@ -1,10 +1,10 @@
-import { AppInfo } from "../appInfo";
+import { AppInfo } from "../appInfo.js";
 import { EventHook } from "./event";
-import { Button, Messagebox, messagebox, Notification } from "../App/messagebox";
+import { Button, Messagebox, messagebox, Notification } from "../App/messagebox.js";
 import { TrigAlItem } from "../Scripting/windows/trigAlEditBase";
-import { TsClient } from "../App/client";
+import { TsClient } from "../App/client.js";
 import { UserConfig, UserConfigData } from "../App/userConfig";
-import { IsNumeric, JsScript, ScriptEvent, Variable } from "../Scripting/jsScript";
+import { IsNumeric, JsScript, ScriptEvent, Variable } from "../Scripting/jsScript.js";
 import { Class } from "../Scripting/classManager";
 
 
@@ -2023,4 +2023,3 @@ export function denyClientVersion(cfg:any):string {
     }
     return null;
 }
-
