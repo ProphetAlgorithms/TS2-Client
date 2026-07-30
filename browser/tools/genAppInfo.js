@@ -1,11 +1,11 @@
-const fs = require("fs");
+import fs from "fs";
 
-const pjson = require('../package.json');
+import pjson from '../package.json' with { type: 'json' };
 
 
 let build = process.argv[2];
-const { exec } = require("child_process");
-const { exit } = require("process");
+import { exec } from "child_process";
+import { exit } from "process";
 
 exec(build, (error, stdout, stderr) => {
     const buildhash = stdout.trim().toString();
