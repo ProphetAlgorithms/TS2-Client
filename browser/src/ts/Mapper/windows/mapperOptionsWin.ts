@@ -1,5 +1,5 @@
 import {ExitDir, Mapper, MapperOptions, Room, RoomExit, Zone} from "../mapper"
-import { circleNavigate, colorCssToRGB, colorToHex, makeIndeterminate } from "../../Core/util";
+import { circleNavigate, colorCssToRGB, colorToHex, makeIndeterminate } from "../../Core/util.js";
 
 export type BooleanFunction = (opt: MapperOptions) => void;
 
@@ -284,4 +284,3 @@ export class MapperOptionsWin {
         (<any>this.$win).jqxWindow("close");
     }
 }
-
