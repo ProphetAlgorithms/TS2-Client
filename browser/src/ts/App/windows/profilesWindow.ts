@@ -1,10 +1,10 @@
-import { Profile, ProfileManager } from "../profileManager";
-import { Button, ButtonOK, Messagebox, messagebox } from "../messagebox";
+import { Profile, ProfileManager } from "../profileManager.js";
+import { Button, ButtonOK, Messagebox, messagebox } from "../messagebox.js";
 import { ProfileWindow } from "./profileWindow";
 import { Client } from "../client";
-import { Acknowledge, AskReload, circleNavigate } from "../../Core/util";
-import { TsClient } from "../client";
-import { EventHook } from "../../Core/event";
+import { Acknowledge, AskReload, circleNavigate } from "../../Core/util.js";
+import { TsClient } from "../client.js";
+import { EventHook } from "../../Core/event.js";
 import { LayoutManager } from "../layoutManager";
 import { WindowManager } from "../windowManager";
 
