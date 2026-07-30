@@ -1,4 +1,4 @@
-import { EventHook } from "../Core/event";
+import { EventHook } from "../Core/event.js";
 
 import { UserConfig } from "./userConfig";
 
@@ -6,17 +6,17 @@ import { AliasEditor } from "../Scripting/windows/aliasEditor";
 import { TriggerEditor } from "../Scripting/windows/triggerEditor";
 import { JsScriptWin } from "../Scripting/windows/jsScriptWin";
 import { AboutWin } from "./windows/aboutWin";
-import { Client, TsClient, setupWorkers } from "./client";
+import { Client, TsClient, setupWorkers } from "./client.js";
 import { ProfilesWindow } from "./windows/profilesWindow";
 import { WindowManager } from "./windowManager";
 import { VariablesEditor } from "../Scripting/windows/variablesEditor";
 import { ClassEditor } from "../Scripting/windows/classEditor";
 import { EventsEditor } from "../Scripting/windows/eventsEditor";
-import { AskReload, circleNavigate, denyClientVersion, downloadJsonToFile, downloadString, exportClassFunc, getVersionNumbers, importFromFile, importScriptsFunc, isTrue } from "../Core/util";
+import { AskReload, circleNavigate, denyClientVersion, downloadJsonToFile, downloadString, exportClassFunc, getVersionNumbers, importFromFile, importScriptsFunc, isTrue } from "../Core/util.js";
 import { LayoutManager } from "./layoutManager";
-import { EvtScriptEmitPrint, EvtScriptEvent, JsScript, ScripEventTypes, ScriptEvent, Variable } from "../Scripting/jsScript";
+import { EvtScriptEmitPrint, EvtScriptEvent, JsScript, ScripEventTypes, ScriptEvent, Variable } from "../Scripting/jsScript.js";
 import { OutputWin } from "./windows/outputWin";
-import { Button, Messagebox, Notification } from "./messagebox";
+import { Button, Messagebox, Notification } from "./messagebox.js";
 import { Class } from "../Scripting/classManager";
 import { TrigAlItem } from "../Scripting/windows/trigAlEditBase";
 import { AppInfo } from "../appInfo";
@@ -24,7 +24,7 @@ import { NumpadWin } from "./windows/numpadWin";
 import { HelpWin } from "./windows/helpWindow";
 import { Mapper } from "../Mapper/mapper";
 import { VersionsWin } from "./windows/versionsWindow";
-import { OutputLogger } from "./outputLogger";
+import { OutputLogger } from "./outputLogger.js";
 import { LayoutWindow } from "./windows/layoutWindow";
 import { VoiceWin } from "./windows/voiceWin";
 import { debounce } from "lodash";
