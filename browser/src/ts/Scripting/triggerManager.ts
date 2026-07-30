@@ -1,11 +1,11 @@
-import { EventHook } from "../Core/event";
+import { EventHook } from "../Core/event.js";
 import { TrigAlItem } from "./windows/trigAlEditBase";
 import { ClassManager } from "./classManager";
-import { EvtScriptEmitPrint, EvtScriptEmitToggleTrigger, EvtScriptEvent, JsScript, ScripEventTypes } from "./jsScript";
+import { EvtScriptEmitPrint, EvtScriptEmitToggleTrigger, EvtScriptEvent, JsScript, ScripEventTypes } from "./jsScript.js";
 import { ProfileManager } from "../App/profileManager";
-import { TsClient } from "../App/client";
-import { ConfigIf, escapeRegExp, escapeRegexReplacement, parseScriptVariableAndParameters, parseSimpleScriptSyntax, stripHtml } from "../Core/util";
-import { Notification } from "../App/messagebox";
+import { TsClient } from "../App/client.js";
+import { ConfigIf, escapeRegExp, escapeRegexReplacement, parseScriptVariableAndParameters, parseSimpleScriptSyntax, stripHtml } from "../Core/util.js";
+import { Notification } from "../App/messagebox.js";
 
 /*export interface ConfigIf {
     set(key: string, val: TrigAlItem[]): void;
@@ -689,4 +689,3 @@ export class TriggerManager {
         this.lineDeleted = this.EvtEmitTriggerOutputChanged.fire({line: this.line, buffer:this.buffer});
     }
 }
-
