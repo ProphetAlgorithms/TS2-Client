@@ -1,11 +1,12 @@
 'use strict';
 
 const path = require("path");
+const url = require('url');
 const fs = require("fs");
 var cp = require('child_process')
 
 // Modules to control application life and create native browser window
-const { app, BrowserWindow, ipcMain, session, protocol, dialog } = require("electron");
+const { app, BrowserWindow, ipcMain, session, protocol, dialog, net } = require("electron");
 
 // Check if Electron is running in development 
 const isDev = require("electron-is-dev");
@@ -19,59 +20,26 @@ if (isDev){
   });
 }
 
-const appPath = process.env.PORTABLE_EXECUTABLE_DIR || app.getPath("exe") || app.getAppPath();
-
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
 let mainWindow;
 protocol.registerSchemesAsPrivileged([
-  { scheme: 'local', privileges: { bypassCSP: true, supportFetchAPI: true, "corsEnabled": true } },
-  { scheme: 'home', privileges: { bypassCSP: true, supportFetchAPI: true, "corsEnabled": true } },
   {
       scheme: "electron",
       privileges: {
-          bypassCSP: true,
+          bypassCSP: false,
           supportFetchAPI: true,
-          "corsEnabled": false
+          corsEnabled: true
       }
   }
 ]);
 
 function interceptLocal() {
   console.log("registering local protocol")
-    protocol.registerBufferProtocol('electron', function(request, callback) {
-        //work out file path
-        var file = request.url.substring(11).split("?")[0];
-        //console.log(file);
-        file = path.join(__dirname, file);
-        callback(fs.readFileSync(file))
-    });
-    protocol.registerFileProtocol('local', (request, callback) => {
-    let url = request.url.substring(8)
-    url = path.normalize(`${appPath}/${url}`)
-    console.log("local url: " + url)
-    mainWindow.setTitle("Load local: " + url)
-    callback({ path: url })
-  })
-  protocol.interceptFileProtocol('local', function (request, callback) {
-    let url = request.url.substring(8)
-    url = path.normalize(`${appPath}/${url}`)
-    console.log("intercept local url: " + url)
-    mainWindow.setTitle("Load local: " + url)
-    callback({ path:  url });   /* 'file:///' */
-  });
-  protocol.registerFileProtocol('home', (request, callback) => {
-    let url = request.url.substring(7)
-    url = path.normalize(`${app.getPath("home")}/${url}`)
-    console.log("local url: " + url)
-    callback({ path: url })
-  })
-  protocol.interceptFileProtocol('home', function (request, callback) {
-    let url = request.url.substring(7)
-    url = path.normalize(`${app.getPath("home")}/${url}`)
-    console.log("intercept local url: " + url)
-    callback({ path:  url });   /* 'file:///' */
-  });
+    protocol.handle('electron', (request) => {
+      const filePath = request.url.slice('electron://'.length).split("?")[0]
+      return net.fetch(url.pathToFileURL(path.join(__dirname, filePath)).toString())
+    })
 }
 
 function createWindow() {
@@ -102,12 +70,12 @@ function createWindow() {
                     fullscreen: false,
                     show:false,
                     webPreferences: {
-                      nodeIntegration: true,
-                      contextIsolation: false,
-                      enableRemoteModule: true, 
+                      preload: path.join(__dirname, 'preload.js'),
                       backgroundThrottling: false,
-                      webSecurity: false ,
-                      devTools: true
+                      devTools: true,
+                      nodeIntegration: false,
+                      contextIsolation: true,
+                      webSecurity: true
                     }
                    });
 
@@ -194,12 +162,50 @@ mainWindow.webContents.on("zoom-changed", (event, zoomDirection) => {
 
 let proxy = null;
 
+app.enableSandbox();
+
+const allowedOrigins = [
+  '^((?:file:\\/\\/)?'.concat(__dirname.replace(/(\/|\.)/g,'\\$1'),')'),
+  '^((?:https?|wss?):\/\/(?:.+\.)?temporasanguinis\.it(?::4040|:4050)?(?:\/.*)?$)',
+  '^electron\:',
+  '^((?:https?|wss?):\/\/localhost:4040(?:\/.*)?$)',
+  '^(https:\/\/(?:.+\.)?github(?:usercontent)?.(?:com|io)(?:\/.*)?$)',
+  '^(https:\/\/(?:.+\.)?paypal(?:objects)?.com(?:\/.*)?$)',
+  '^https:\/\/www\.recaptcha\.net',
+  '^https:\/\/browser-intake-us5-datadoghq\.com',
+  '^https:\/\/(?:.+\.)?hcaptcha\.com',
+  '^https:\/\/applepay\.cdn-apple\.com'
+];
+
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.
 // Some APIs can only be used after this event occurs.
-app.on("ready", () => {
-  createWindow();
+app.whenReady().then(() => {
   interceptLocal();
+  
+  session.defaultSession.webRequest.onBeforeRequest((details, callback) => {
+    try {
+      const url = details.url;
+      let isAllowed = false;
+      isAllowed = allowedOrigins.some(allowedPattern => {
+        var re = new RegExp(allowedPattern,"g")
+        if (re.test(url)) {
+          return true
+        }
+      });
+      if (isAllowed) {
+        callback({ cancel: false });
+      } else {
+        console.log(`Richiesta di rete bloccata verso: ${url}`);
+        callback({ cancel: true });
+      }
+    } catch (error) {
+      console.error('Errore nel filtro webRequest:', error);
+      callback({ cancel: true });
+    }
+  });
+  
+  createWindow();
   proxy = cp.fork(require.resolve('./dist/public/telnet_proxy.js'), [
     "--serverHost","localhost",
     "--serverPort","4040", 
