@@ -185,7 +185,7 @@ app.whenReady().then(() => {
   
   session.defaultSession.webRequest.onBeforeRequest((details, callback) => {
     try {
-      const url = details.url;
+      const url = decodeURIComponent(details.url);
       let isAllowed = false;
       isAllowed = allowedOrigins.some(allowedPattern => {
         var re = new RegExp(allowedPattern,"g")
