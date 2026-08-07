@@ -1,7 +1,7 @@
 import { UserConfig } from "./userConfig.js";
 import { AppInfo } from "../appInfo.js";
 // @ts-ignore
-import * as Fingerprint2 from "@fingerprintjs/fingerprintjs";
+import FingerprintJS from "@fingerprintjs/fingerprintjs";
 import {Md5} from 'ts-md5';
 import * as aesjs from "aes-js";
 import { AliasEditor, EvtCopyAliasToBase } from "../Scripting/windows/aliasEditor.js";
@@ -979,11 +979,6 @@ Se vorrai farlo in futuro puoi farlo dal menu Informazioni.`, async (v) => {
         onPreloaded();
     }
 
-    interface component {
-        key:string;
-        value:any;
-    }
-
     export function decrypt(text: string):string {
         if ((<any>window).ipcRenderer) return text;
         var key = aesjs.utils.hex.toBytes(localStorage.getItem("browserHash"));
@@ -1098,30 +1093,18 @@ Se vorrai farlo in futuro puoi farlo dal menu Informazioni.`, async (v) => {
             }
         })
 
-        let componentsFetched = async (components:component[]) => {
-            let hashStr = "";
-            for (const iterator of components) {
-                hashStr+=iterator.key+iterator.value;
-            }
-            hashStr = Md5.hashStr(hashStr).toString();
-
+        let componentsFetched = async (hashStr:string) => {
             if (!(<any>window).ipcRenderer) await initEncryption(hashStr);
             await initClient();
         };
-
-        if ((<any>window).requestIdleCallback) {
-            (<any>window).requestIdleCallback(function () {
-                Fingerprint2.get(function (components:component[]) {
-                  componentsFetched(components);
-                })
-            })
-        } else {
-            setTimeout(function () {
-                Fingerprint2.get(function (components:component[]) {
-                    componentsFetched(components);
-                })  
-            }, 500)
-        }
+        
+        const fpPromise = FingerprintJS.load();
+        
+        (async () => {
+          const fp = await fpPromise
+          const result = await fp.get()
+          componentsFetched(result.visitorId)
+        })()
     }
 }
 
