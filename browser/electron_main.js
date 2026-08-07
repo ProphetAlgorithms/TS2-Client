@@ -169,7 +169,7 @@ const allowedOrigins = [
   '^((?:https?|wss?):\/\/(?:.+\.)?temporasanguinis\.it(?::4040|:4050)?(?:\/.*)?$)',
   '^electron\:',
   '^((?:https?|wss?):\/\/localhost:4040(?:\/.*)?$)',
-  '^(https:\/\/(?:.+\.)?github(?:usercontent)?.(?:com|io)(?:\/.*)?$)',
+  '^(https:\/\/(?:.+\.)?github(?:usercontent|\.githubassets)?.(?:com|io)(?:\/.*)?$)',
   '^(https:\/\/(?:.+\.)?paypal(?:objects)?.com(?:\/.*)?$)',
   '^https:\/\/www\.recaptcha\.net',
   '^https:\/\/browser-intake-us5-datadoghq\.com',
