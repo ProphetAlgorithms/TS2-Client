@@ -87,7 +87,7 @@
     "@node-minify/terser": "^10.5.0",
     "@types/lodash": "^4.17.24",
     "@types/resize-observer-browser": "^0.1.11",
-    "codemirror": "5.65.21",
+    "codemirror": "^5.65.21",
     "copy-webpack-plugin": "^14.0.0",
     "electron": "^43.3.0",
     "electron-builder": "^26.15.3",
