@@ -5,7 +5,8 @@ import CopyPlugin from "copy-webpack-plugin";
 const __dirname = import.meta.dirname;
 
 export default {
-  entry: './src/ts/App/client',
+  entry: './build/browser/src/ts/App/client.js',
+  //entry: './src/ts/App/client',
   output: {
     path: path.resolve(__dirname, "static/public"),
     filename: 'mudslinger-[contenthash].js',
