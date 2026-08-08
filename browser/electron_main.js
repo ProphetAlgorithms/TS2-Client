@@ -165,16 +165,16 @@ let proxy = null;
 app.enableSandbox();
 
 const allowedOrigins = [
-  '^((?:file:\\/\\/)?'.concat(__dirname.replace(/(\/|\.)/g,'\\$1'),')'),
-  '^((?:https?|wss?):\/\/(?:.+\.)?temporasanguinis\.it(?::4040|:4050)?(?:\/.*)?$)',
-  '^electron\:',
-  '^((?:https?|wss?):\/\/localhost:4040(?:\/.*)?$)',
-  '^(https:\/\/(?:.+\.)?github(?:usercontent|\.githubassets)?.(?:com|io)(?:\/.*)?$)',
-  '^(https:\/\/(?:.+\.)?paypal(?:objects)?.com(?:\/.*)?$)',
-  '^https:\/\/www\.recaptcha\.net',
-  '^https:\/\/browser-intake-us5-datadoghq\.com',
-  '^https:\/\/(?:.+\.)?hcaptcha\.com',
-  '^https:\/\/applepay\.cdn-apple\.com'
+  new RegExp('^'.concat(url.pathToFileURL(__dirname).toString().replace(/[.*+?^${}()|[\]\\/]/g,'\\$&'))),
+  new RegExp('^((?:https?|wss?):\/\/(?:.+\.)?temporasanguinis\.it(?::4040|:4050)?(?:\/.*)?$)'),
+  new RegExp('^electron\:'),
+  new RegExp('^((?:https?|wss?):\/\/localhost:4040(?:\/.*)?$)'),
+  new RegExp( '^(https:\/\/(?:.+\.)?github(?:usercontent|\.githubassets)?.(?:com|io)(?:\/.*)?$)'),
+  new RegExp('^(https:\/\/(?:.+\.)?paypal(?:objects)?.com(?:\/.*)?$)'),
+  new RegExp('^https:\/\/www\.recaptcha\.net'),
+  new RegExp('^https:\/\/browser-intake-us5-datadoghq\.com'),
+  new RegExp('^https:\/\/(?:.+\.)?hcaptcha\.com'),
+  new RegExp('^https:\/\/applepay\.cdn-apple\.com')
 ];
 
 // This method will be called when Electron has finished
@@ -185,18 +185,12 @@ app.whenReady().then(() => {
   
   session.defaultSession.webRequest.onBeforeRequest((details, callback) => {
     try {
-      const url = decodeURIComponent(details.url);
-      let isAllowed = false;
-      isAllowed = allowedOrigins.some(allowedPattern => {
-        var re = new RegExp(allowedPattern,"g")
-        if (re.test(url)) {
-          return true
-        }
-      });
+      const reqUrl = details.url;
+      const isAllowed = allowedOrigins.some(allowedPattern =>  allowedPattern.test(reqUrl))
       if (isAllowed) {
         callback({ cancel: false });
       } else {
-        console.log(`Richiesta di rete bloccata verso: ${url}`);
+        console.log('Richiesta di rete bloccata verso: ' + reqUrl);
         callback({ cancel: true });
       }
     } catch (error) {
