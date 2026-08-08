@@ -169,12 +169,13 @@ const allowedOrigins = [
   new RegExp('^((?:https?|wss?):\/\/(?:.+\.)?temporasanguinis\.it(?::4040|:4050)?(?:\/.*)?$)'),
   new RegExp('^electron\:'),
   new RegExp('^((?:https?|wss?):\/\/localhost:4040(?:\/.*)?$)'),
-  new RegExp( '^(https:\/\/(?:.+\.)?github(?:usercontent|\.githubassets)?.(?:com|io)(?:\/.*)?$)'),
+  new RegExp('^(https:\/\/(?:.+\.)?github(?:usercontent|\.githubassets)?.(?:com|io)(?:\/.*)?$)'),
   new RegExp('^(https:\/\/(?:.+\.)?paypal(?:objects)?.com(?:\/.*)?$)'),
   new RegExp('^https:\/\/www\.recaptcha\.net'),
-  new RegExp('^https:\/\/browser-intake-us5-datadoghq\.com'),
   new RegExp('^https:\/\/(?:.+\.)?hcaptcha\.com'),
-  new RegExp('^https:\/\/applepay\.cdn-apple\.com')
+  new RegExp('^https:\/\/applepay\.cdn-apple\.com'),
+  new RegExp('^https:\/\/www\.apple\.com'),
+  new RegExp('^wss:\/\/paymentrelayservice\.apple\.com')
 ];
 
 // This method will be called when Electron has finished
