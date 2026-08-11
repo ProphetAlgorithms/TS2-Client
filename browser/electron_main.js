@@ -3,7 +3,8 @@
 const path = require("path");
 const url = require('url');
 const fs = require("fs");
-var cp = require('child_process')
+var cp = require('child_process');
+const platform = process.platform;
 
 // Modules to control application life and create native browser window
 const { app, BrowserWindow, ipcMain, session, protocol, dialog, net } = require("electron");
@@ -31,14 +32,29 @@ protocol.registerSchemesAsPrivileged([
           supportFetchAPI: true,
           corsEnabled: true
       }
+  },
+  {
+      scheme: "local",
+      privileges: {
+          bypassCSP: false,
+          supportFetchAPI: true,
+          corsEnabled: true
+      }
   }
 ]);
+
+let hiddenDir = '.';
+if (platform === 'win32') { hiddenDir = '' };
 
 function interceptLocal() {
   console.log("registering local protocol")
     protocol.handle('electron', (request) => {
       const filePath = request.url.slice('electron://'.length).split("?")[0]
       return net.fetch(url.pathToFileURL(path.join(__dirname, filePath)).toString())
+    }),
+    protocol.handle('local', (request) => {
+      const filePath = request.url.slice('local://'.length)
+      return net.fetch(url.pathToFileURL(path.join(app.getPath('home'), `${hiddenDir}${app.name}`, filePath)).toString())
     })
 }
 
@@ -166,8 +182,10 @@ app.enableSandbox();
 
 const allowedOrigins = [
   new RegExp('^'.concat(url.pathToFileURL(__dirname).toString().replace(/[.*+?^${}()|[\]\\/]/g,'\\$&'))),
+  new RegExp('^'.concat(url.pathToFileURL(path.join(app.getPath('home'), `${hiddenDir}${app.name}`)).toString().replace(/[.*+?^${}()|[\]\\/]/g,'\\$&'))),
   new RegExp('^((?:https?|wss?):\/\/(?:.+\.)?temporasanguinis\.it(?::4040|:4050)?(?:\/.*)?$)'),
   new RegExp('^electron\:'),
+  new RegExp('^local\:'),
   new RegExp('^((?:https?|wss?):\/\/localhost:4040(?:\/.*)?$)'),
   new RegExp('^(https:\/\/(?:.+\.)?github(?:usercontent|\.githubassets)?.(?:com|io)(?:\/.*)?$)'),
   new RegExp('^(https:\/\/(?:.+\.)?paypal(?:objects)?.com(?:\/.*)?$)'),
