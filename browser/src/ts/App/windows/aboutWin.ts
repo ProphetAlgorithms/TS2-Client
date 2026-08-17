@@ -1,5 +1,5 @@
-import { AppInfo } from "../../appInfo.js";
-import { htmlEscape } from "../../Core/util.js";
+import { AppInfo } from "../../appInfo";
+import { htmlEscape } from "../../Core/util";
 
 export class AboutWin {
     private $win: JQuery;

@@ -1,4 +1,4 @@
-import { apiPostContact } from "../../Core/apiUtil.js";
+import { apiPostContact } from "../../Core/apiUtil";
 
 
 export class ContactWin {

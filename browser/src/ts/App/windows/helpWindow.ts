@@ -1,10 +1,10 @@
-import { AppInfo } from "../../appInfo.js";
+import { AppInfo } from "../../appInfo";
 import { marked } from "marked";
 import hljs from 'highlight.js/lib/core';
 import javascript from 'highlight.js/lib/languages/javascript';
 import json from 'highlight.js/lib/languages/javascript';
-import { downloadString, importFromFile } from "../../Core/util.js";
-import { Messagebox } from "../messagebox.js";
+import { downloadString, importFromFile } from "../../Core/util";
+import { Messagebox } from "../messagebox";
 
 hljs.registerLanguage('javascript', javascript);
 hljs.registerLanguage('js', javascript);

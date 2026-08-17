@@ -1,9 +1,9 @@
-import { EventHook } from "../Core/event.js";
-import { denyClientVersion, getVersionNumbers, throttle } from "../Core/util.js";
-import { AppInfo } from '../appInfo.js'
-import { Button, ButtonOK, Messagebox } from "./messagebox.js";
+import { EventHook } from "../Core/event";
+import { denyClientVersion, getVersionNumbers, throttle } from "../Core/util";
+import { AppInfo } from '../appInfo'
+import { Button, ButtonOK, Messagebox } from "./messagebox";
 import { Favorite, Mapper } from "../Mapper/mapper";
-import { EvtScriptEvent, ScripEventTypes } from "../Scripting/jsScript.js";
+import { EvtScriptEvent, ScripEventTypes } from "../Scripting/jsScript";
 
 export class UserConfigData {
     name:string;

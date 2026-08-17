@@ -1,11 +1,11 @@
-import { EventHook } from "../Core/event.js";
+import { EventHook } from "../Core/event";
 import { TrigAlItem } from "./windows/trigAlEditBase";
 import { ClassManager } from "./classManager";
-import { EvtScriptEmitPrint, EvtScriptEmitToggleTrigger, EvtScriptEvent, JsScript, ScripEventTypes } from "./jsScript.js";
+import { EvtScriptEmitPrint, EvtScriptEmitToggleTrigger, EvtScriptEvent, JsScript, ScripEventTypes } from "./jsScript";
 import { ProfileManager } from "../App/profileManager";
-import { TsClient } from "../App/client.js";
-import { ConfigIf, escapeRegExp, escapeRegexReplacement, parseScriptVariableAndParameters, parseSimpleScriptSyntax, stripHtml } from "../Core/util.js";
-import { Notification } from "../App/messagebox.js";
+import { TsClient } from "../App/client";
+import { ConfigIf, escapeRegExp, escapeRegexReplacement, parseScriptVariableAndParameters, parseSimpleScriptSyntax, stripHtml } from "../Core/util";
+import { Notification } from "../App/messagebox";
 
 /*export interface ConfigIf {
     set(key: string, val: TrigAlItem[]): void;

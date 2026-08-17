@@ -1,6 +1,6 @@
-import { EventHook } from "../Core/event.js";
+import { EventHook } from "../Core/event";
 import { TrigAlItem } from "./windows/trigAlEditBase";
-import { EvtScriptEmitPrint, EvtScriptEmitToggleClass, EvtScriptEvent, ScripEventTypes } from "./jsScript.js";
+import { EvtScriptEmitPrint, EvtScriptEmitToggleClass, EvtScriptEvent, ScripEventTypes } from "./jsScript";
 import { ConfigIf } from "../Core/util";
 import { ProfileManager } from "../App/profileManager";
 import { UserConfig } from "../App/userConfig";

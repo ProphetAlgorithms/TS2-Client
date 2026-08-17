@@ -1,6 +1,6 @@
-import { EventHook } from "../Core/event.js";
+import { EventHook } from "../Core/event";
 import { openDB, IDBPDatabase, DBSchema } from 'idb';
-import { downloadString } from "../Core/util.js";
+import { downloadString } from "../Core/util";
 import { JsScript } from "../Scripting/jsScript";
 
 export interface OutputLogDBSchema extends DBSchema {

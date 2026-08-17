@@ -1,11 +1,11 @@
-import * as Util from "../../Core/util.js";
-import { JsScript, ScriptEvent, ScripEventTypes, ScriptEventsIta } from "../jsScript.js";
-import { Button, Messagebox } from "../../App/messagebox.js";
-import { CreateCodeMirror, circleNavigate } from "../../Core/util.js";
+import * as Util from "../../Core/util";
+import { JsScript, ScriptEvent, ScripEventTypes, ScriptEventsIta } from "../jsScript";
+import { Button, Messagebox } from "../../App/messagebox";
+import { CreateCodeMirror, circleNavigate } from "../../Core/util";
 import { TsClient } from "../../App/client";
 import { ProfileManager } from "../../App/profileManager";
 import { TrigAlItem } from "./trigAlEditBase";
-import { optionMappingToStorage } from "../../App/menuBar.js";
+import { optionMappingToStorage } from "../../App/menuBar";
 declare let CodeMirror: any;
 
 

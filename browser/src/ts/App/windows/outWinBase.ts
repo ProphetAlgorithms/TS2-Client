@@ -1,9 +1,9 @@
-import * as Util from "../../Core/util.js";
-import { colorIdToHtml } from "../../Core/color.js";
-import { EventHook } from "../../Core/event.js";
-import { ConfigIf, padStart } from "../../Core/util.js";
-import { Notification } from "../messagebox.js"
-import { OutputLogger } from "../outputLogger.js";
+import * as Util from "../../Core/util";
+import { colorIdToHtml } from "../../Core/color";
+import { EventHook } from "../../Core/event";
+import { ConfigIf, padStart } from "../../Core/util";
+import { Notification } from "../messagebox"
+import { OutputLogger } from "../outputLogger";
 
 /*export interface ConfigIf {
     onSet(key: string, cb: (val: any) => void): void;

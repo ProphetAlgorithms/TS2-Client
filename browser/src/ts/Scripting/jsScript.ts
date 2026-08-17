@@ -1,14 +1,14 @@
 import { isNumeric } from "jquery";
 import { AliasManager } from "./aliasManager";
 import { ClassManager } from "./classManager";
-import { EventHook } from "../Core/event.js";
+import { EventHook } from "../Core/event";
 import { Mapper } from "../Mapper/mapper";
 import { OutputManager } from "../App/outputManager";
 import { ProfileManager } from "../App/profileManager";
 import { TrigAlItem } from "./windows/trigAlEditBase";
 import { TriggerManager } from "./triggerManager";
-import { ConfigIf, escapeRegExp, htmlEscape, parseScriptVariableAndParameters, throttle } from "../Core/util.js";
-import { Button, Messagebox } from "../App/messagebox.js";
+import { ConfigIf, escapeRegExp, htmlEscape, parseScriptVariableAndParameters, throttle } from "../Core/util";
+import { Button, Messagebox } from "../App/messagebox";
 
 export let EvtScriptEmitCmd = new EventHook<{owner:string, message:string, silent:boolean}>();
 export let EvtScriptEmitPrint = new EventHook<{owner:string, message:string, window?:string, raw?:any}>();

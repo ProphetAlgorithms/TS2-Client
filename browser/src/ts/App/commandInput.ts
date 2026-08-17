@@ -1,9 +1,9 @@
-import { EventHook } from "../Core/event.js";
+import { EventHook } from "../Core/event";
 
 import {AliasManager} from "../Scripting/aliasManager";
 import { UserConfig } from "./userConfig";
-import { createPath, isTrue, parseScriptVariableAndParameters, throttle } from "../Core/util.js";
-import { EvtScriptEmitPrint, EvtScriptEvent, JsScript, ScripEventTypes } from "../Scripting/jsScript.js";
+import { createPath, isTrue, parseScriptVariableAndParameters, throttle } from "../Core/util";
+import { EvtScriptEmitPrint, EvtScriptEvent, JsScript, ScripEventTypes } from "../Scripting/jsScript";
 import Split from "split.js";
 import { OutputWin } from "./windows/outputWin";
 import hotkeys from "hotkeys-js";

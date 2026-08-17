@@ -1,14 +1,14 @@
-import { EventHook } from "./event.js";
+import { EventHook } from "./event";
 
 import * as ioc from "socket.io-client";
 import { Mxp } from "./mxp";
 import { OutputManager } from "../App/outputManager";
-import { IoEvent } from "../../../../common/src/ts/ioevent.js";
-import { TelnetClient } from "./telnetClient.js";
-import { utf8decode, utf8encode } from "./util.js";
+import { IoEvent } from "../../../../common/src/ts/ioevent";
+import { TelnetClient } from "./telnetClient";
+import { utf8decode, utf8encode } from "./util";
 import { UserConfig } from "../App/userConfig";
-import * as apiUtil from "./apiUtil.js";
-import { AppInfo } from "../appInfo.js";
+import * as apiUtil from "./apiUtil";
+import { AppInfo } from "../appInfo";
 
 
 export class Socket {

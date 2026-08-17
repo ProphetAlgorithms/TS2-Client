@@ -1,10 +1,10 @@
-import { EventHook } from '../Core/event.js';
-import { EvtScriptEmitPrint, JsScript } from '../Scripting/jsScript.js'
-import { EvtScriptEvent, ScripEventTypes, EvtScriptEmitCmd } from '../Scripting/jsScript.js'
+import { EventHook } from '../Core/event';
+import { EvtScriptEmitPrint, JsScript } from '../Scripting/jsScript'
+import { EvtScriptEvent, ScripEventTypes, EvtScriptEmitCmd } from '../Scripting/jsScript'
 import { aStar, PathFinder } from 'ngraph.path';
 import * as ngraph from 'ngraph.graph';
 import {MapperStorage} from '../Storage/mapperStorage'
-import { Notification } from '../App/messagebox.js';
+import { Notification } from '../App/messagebox';
 import { ProfileManager } from '../App/profileManager';
 
 export interface MapperOptions {

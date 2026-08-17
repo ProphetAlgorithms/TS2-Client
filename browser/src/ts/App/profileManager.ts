@@ -1,12 +1,12 @@
-import { Client, TsClient } from "./client.js";
-import { EventHook } from "../Core/event.js";
-import { UserConfig } from "./userConfig.js";
-import { Messagebox, messagebox } from "./messagebox.js";
-import { AppInfo } from "../appInfo.js";
+import { Client, TsClient } from "./client";
+import { EventHook } from "../Core/event";
+import { UserConfig } from "./userConfig";
+import { Messagebox, messagebox } from "./messagebox";
+import { AppInfo } from "../appInfo";
 import { WindowData, WindowManager } from "./windowManager";
 import { LayoutDefinition, LayoutManager } from "./layoutManager";
-import { throttle } from "../Core/util.js";
-import { UserConfigStorage } from '../Storage/configStorage.js'
+import { throttle } from "../Core/util";
+import { UserConfigStorage } from '../Storage/configStorage'
 import { cli } from "webpack";
 
 export class Profile {

@@ -1,9 +1,9 @@
 import { TrigAlItem } from "./windows/trigAlEditBase";
-import { EventHook } from "../Core/event.js";
+import { EventHook } from "../Core/event";
 import { ClassManager } from "./classManager";
-import { API, EvtScriptEmitPrint, EvtScriptEmitToggleAlias, JsScript } from "./jsScript.js";
+import { API, EvtScriptEmitPrint, EvtScriptEmitToggleAlias, JsScript } from "./jsScript";
 import { ProfileManager } from "../App/profileManager";
-import { ConfigIf, escapeRegExp, parseScriptVariableAndParameters, parseShortcutString, parseSimpleScriptSyntax } from "../Core/util.js";
+import { ConfigIf, escapeRegExp, parseScriptVariableAndParameters, parseShortcutString, parseSimpleScriptSyntax } from "../Core/util";
 import { UserConfig } from "../App/userConfig";
 import hotkeys from 'hotkeys-js';
 

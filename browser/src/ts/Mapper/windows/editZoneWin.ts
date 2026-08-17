@@ -1,8 +1,8 @@
 import { cloneDeep } from "lodash";
 import {ExitDir, Room, RoomExit, Zone} from "../mapper"
-import { circleNavigate, colorCssToRGB, colorToHex } from "../../Core/util.js";
+import { circleNavigate, colorCssToRGB, colorToHex } from "../../Core/util";
 import { MapperDrawing } from "../mapperDrawing";
-import { Messagebox , Notification} from "../../App/messagebox.js";
+import { Messagebox , Notification} from "../../App/messagebox";
 
 export type zoneCallback = (zone:Zone | null) => void;
 

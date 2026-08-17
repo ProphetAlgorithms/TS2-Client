@@ -1,5 +1,5 @@
-import { OutWinBase } from "./outWinBase.js";
-import { ConfigIf, stripHtml } from "../../Core/util.js";
+import { OutWinBase } from "./outWinBase";
+import { ConfigIf, stripHtml } from "../../Core/util";
 import { IBaseWindow } from "../windowManager";
 
 export class CustomWin extends OutWinBase implements IBaseWindow {

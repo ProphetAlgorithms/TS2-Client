@@ -1,4 +1,4 @@
-import { AppInfo } from "../../appInfo.js";
+import { AppInfo } from "../../appInfo";
 
 export class VersionsWin {
     private $win: JQuery;

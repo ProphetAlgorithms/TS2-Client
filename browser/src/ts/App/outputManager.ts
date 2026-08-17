@@ -1,10 +1,10 @@
 import {OutputWin} from "./windows/outputWin";
 import {OutWinBase} from "./windows/outWinBase";
-import {EventHook} from "../Core/event.js";
-import { ConfigIf, utf8decode } from "../Core/util.js";
+import {EventHook} from "../Core/event";
+import { ConfigIf, utf8decode } from "../Core/util";
 
 import { ansiColorTuple, copyAnsiColorTuple, colorIdToHtml,
-         ansiFgLookup, ansiBgLookup, ansiName, ansiLevel } from "../Core/color.js";
+         ansiFgLookup, ansiBgLookup, ansiName, ansiLevel } from "../Core/color";
 import { UserConfig } from "./userConfig";
 import { Socket } from "../Core/socket";
 import { WindowManager } from "./windowManager";

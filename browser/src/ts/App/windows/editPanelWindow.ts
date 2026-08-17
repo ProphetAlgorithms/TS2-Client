@@ -1,9 +1,9 @@
 import { TsClient } from "../client";
 
-import { CreateCodeMirror, circleNavigate, refreshVariablesInTern } from "../../Core/util.js";
-import { Control, ControlType, DockPane, LayoutDefinition, LayoutManager, populateItemsInPanes } from "../layoutManager.js";
+import { CreateCodeMirror, circleNavigate, refreshVariablesInTern } from "../../Core/util";
+import { Control, ControlType, DockPane, LayoutDefinition, LayoutManager, populateItemsInPanes } from "../layoutManager";
 import { JsScript } from "../../Scripting/jsScript";
-import { Messagebox, Notification, messagebox } from "../messagebox.js";
+import { Messagebox, Notification, messagebox } from "../messagebox";
 import { ProfileManager } from "../profileManager";
 
 declare let CodeMirror: any;

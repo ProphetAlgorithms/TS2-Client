@@ -8,10 +8,10 @@ import express from "express";
 import * as fs from "fs";
 import path from "path";
 import yargs from "yargs";
-import { IoEvent } from "../../common/src/ts/ioevent.js";
+import { IoEvent } from "../../common/src/ts/ioevent";
 import * as os from "os"
-import { SignalingServer } from "./signaling-server.js";
-import { Secrets } from "./secrets.js";
+import { SignalingServer } from "./signaling-server";
+import { Secrets } from "./secrets";
 //const __dirname = import.meta.dirname;
 
 const token = Secrets.Token

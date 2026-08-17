@@ -1,5 +1,5 @@
 import * as del from "del";
-import { htmlEscape } from "../Core/util.js";
+import { htmlEscape } from "../Core/util";
 
 export const ButtonOK = 1;
 export const ButtonCancel = 0;

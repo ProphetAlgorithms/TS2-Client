@@ -1,10 +1,10 @@
-import { AppInfo } from "../appInfo.js";
+import { AppInfo } from "../appInfo";
 import { EventHook } from "./event";
-import { Button, Messagebox, messagebox, Notification } from "../App/messagebox.js";
+import { Button, Messagebox, messagebox, Notification } from "../App/messagebox";
 import { TrigAlItem } from "../Scripting/windows/trigAlEditBase";
-import { TsClient } from "../App/client.js";
+import { TsClient } from "../App/client";
 import { UserConfig, UserConfigData } from "../App/userConfig";
-import { IsNumeric, JsScript, ScriptEvent, Variable } from "../Scripting/jsScript.js";
+import { IsNumeric, JsScript, ScriptEvent, Variable } from "../Scripting/jsScript";
 import { Class } from "../Scripting/classManager";
 
 

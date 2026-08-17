@@ -1,5 +1,5 @@
 import { validate } from "schema-utils";
-import { defNumpad, NumPadConfigDef } from "../commandInput.js";
+import { defNumpad, NumPadConfigDef } from "../commandInput";
 import { UserConfig } from "../userConfig";
 
 export class NumpadWin {

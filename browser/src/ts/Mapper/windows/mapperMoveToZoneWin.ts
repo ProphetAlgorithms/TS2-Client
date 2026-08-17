@@ -1,8 +1,8 @@
 import {ExitDir, Zone, Mapper, MapperOptions, Room, RoomExit} from "../mapper"
-import { createZoneLabel } from "./mapperWindow.js";
-import { circleNavigate, colorCssToRGB, colorToHex } from "../../Core/util.js";
-import { EditZoneWin } from "./editZoneWin.js";
-import { Notification } from "../../App/messagebox.js";
+import { createZoneLabel } from "./mapperWindow";
+import { circleNavigate, colorCssToRGB, colorToHex } from "../../Core/util";
+import { EditZoneWin } from "./editZoneWin";
+import { Notification } from "../../App/messagebox";
 type AcceptCallback = (z:Zone) => void;
 
 export class MapperMoveToZoneWin {

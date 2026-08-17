@@ -1,14 +1,14 @@
 import { isNumeric, type } from "jquery";
 import { CommandInput } from "./commandInput";
 import { CustomWin } from "./windows/customWindow";
-import { EventHook } from "../Core/event.js";
-import { JsScript, colorize, EvtScriptEmitPrint, EvtScriptEvent, ScripEventTypes, API, EvtScriptEmitError } from "../Scripting/jsScript.js";
-import { Button, Messagebox, messagebox } from "./messagebox.js";
+import { EventHook } from "../Core/event";
+import { JsScript, colorize, EvtScriptEmitPrint, EvtScriptEvent, ScripEventTypes, API, EvtScriptEmitError } from "../Scripting/jsScript";
+import { Button, Messagebox, messagebox } from "./messagebox";
 import { Profile, ProfileManager } from "./profileManager";
-import { denyClientVersion, escapeRegExp, getVersionNumbers, isAlphaNumeric, isTrue, parseScriptVariableAndParameters, rawToHtml, throttle } from "../Core/util.js";
+import { denyClientVersion, escapeRegExp, getVersionNumbers, isAlphaNumeric, isTrue, parseScriptVariableAndParameters, rawToHtml, throttle } from "../Core/util";
 import { WindowDefinition } from "./windowManager";
-import { parseColorToken } from "../Core/color.js";
-import { AppInfo } from "../appInfo.js";
+import { parseColorToken } from "../Core/color";
+import { AppInfo } from "../appInfo";
 
 
 export let LayoutVersion = 1;

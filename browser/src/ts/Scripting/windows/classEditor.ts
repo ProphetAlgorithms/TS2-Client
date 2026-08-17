@@ -1,8 +1,8 @@
 import * as Util from "../../Core/util";
 import { JsScript, Variable } from "../jsScript";
 import { Class, ClassManager } from "../classManager";
-import { Button, Messagebox } from "../../App/messagebox.js";
-import { circleNavigate, exportClassFunc, importScriptsFunc } from "../../Core/util.js";
+import { Button, Messagebox } from "../../App/messagebox";
+import { circleNavigate, exportClassFunc, importScriptsFunc } from "../../Core/util";
 import { ProfileManager } from "../../App/profileManager";
 import { TriggerManager } from "../triggerManager";
 import { AliasManager } from "../aliasManager";
