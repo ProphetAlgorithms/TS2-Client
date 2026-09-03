@@ -74,6 +74,7 @@ function minifyJqWidgets(next) {
             }
         }*/
         }).then((min) => {
+          fs.copyFileSync('./dist/jqwidgets_module.min.js', './static/public/modules/jqwidgets_module.min.js');
           if (next) next()
         }).catch((err) => {
           console.error('Error:', err);
@@ -106,6 +107,7 @@ function minifyCss(next) {
             }
         }*/
         }).then((min) => {
+          fs.copyFileSync('./dist/modules.min.css', './static/public/modules/modules.min.css');
           if (next) next()
         }).catch((err) => {
           console.error('Error:', err);
